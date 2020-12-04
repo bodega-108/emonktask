@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emonk Task{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+    <h3>Mis Tareas</h3>
+    {% if  mitarea|length >=1 %}
+        {{ include('includes/task-list.html.twig')}}
+{% else %}
+
+
+ <div class="card card-nav-tabs text-center">
+            <div class="card-header card-header-primary">
+                Lo Sentimos
+            </div>
+  <div class="card-body">
+    <h4 class="card-title">No Hay Tareas Disponibles para este usuario</h4>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+    {% endif %}
+
+       
+    </div>
+
+{% endblock %}

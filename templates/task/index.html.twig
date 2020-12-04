@@ -1,16 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TaskController!{% endblock %}
+{% block title %}Emonk Task{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+
+<div class="container mt-5">
+    <h2>Todas las tareas</h2>
     <hr>
-   
+   <div class="container">
+    <table class="table">
+    <thead>
+        <tr>
+           
+         
+            <th>Titulo</th>
+            <th>Prioridad</th>
+            <th >Horas</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+               {% for tarea in tareas %}
+           <tr>
+            <td>{{tarea.title}}</td>
+            <td>{{tarea.priority}}</td>
+            <td>{{tarea.hours}}</td>
+
+             <td class="td-actions text-right">
+              <a  href="{{ path('task_detail', {'id':tarea.id})}}" class="btn btn-info btn-sm btn-round btn-icon">
+                  <i class="fas fa-edit"></i>
+              </a>
+              <button type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+                  <i class="fas fa-info"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                 <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+           </tr>
+        
+            
+        
+           {% endfor %}
+        
+       
+    </tbody>
+</table>
+   </div>
 </div>
 {% endblock %}

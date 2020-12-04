@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emonk Task{% endblock %}
+
+{% block body %}
+
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-info">
+            Detalle
+        </div>
+        <div class="card-body">
+            <h4>Titulo: {{task.title}}</h4>
+           
+            <small id="emailHelp" class="form-text text-muted">La Tarea la ha cargado: {{task.user.name}} {{task.user.surname}} </small>
+             <small id="emailHelp" class="form-text text-muted">Fecha de Creación: {{task.createdAt|date('d/m/Y')}}</small>
+         
+            <p> <strong>Descripcion: </strong> {{task.content}}</p>
+            <p>Tiene una prioridad:<strong> {{task.priority}}</strong><p>
+        </div>
+    </div>
+</div>
+{% endblock %}
